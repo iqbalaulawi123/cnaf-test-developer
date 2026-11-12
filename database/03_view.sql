@@ -31,7 +31,7 @@ SELECT  k.KaryawanID,
 FROM        dbo.Karyawan         k
 INNER JOIN  dbo.Branch           b  ON b.BranchID   = k.BranchID
 INNER JOIN  dbo.Departments      d  ON d.dept_id    = k.Dept_ID
-LEFT  JOIN  dbo.Departments      dp ON dp.dept_id   = d.dept_parentid   -- self join: induk
+LEFT  JOIN  dbo.Departments      dp ON dp.dept_id   = d.dept_parentid
 INNER JOIN  dbo.TblOffice        o  ON o.OfficeID   = k.OfficeID
 INNER JOIN  dbo.TblPosition      p  ON p.PositionID = k.PositionID
 LEFT  JOIN  dbo.DetailKaryawan   dk ON dk.KaryawanID = k.KaryawanID

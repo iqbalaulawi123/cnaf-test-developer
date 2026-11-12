@@ -49,7 +49,7 @@ IF NOT EXISTS (SELECT 1 FROM sys.indexes
                  AND object_id = OBJECT_ID(N'dbo.Karyawan'))
     CREATE NONCLUSTERED INDEX IX_Karyawan_Isactive_BranchID
         ON dbo.Karyawan (Isactive, BranchID)
-        INCLUDE (Dept_ID, PositionID); -- Include index for query filter (Dept_ID, PositionID)
+        INCLUDE (Dept_ID, PositionID);
 GO
 
 -- DetailKaryawan
