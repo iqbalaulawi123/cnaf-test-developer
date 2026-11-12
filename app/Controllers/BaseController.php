@@ -2,12 +2,14 @@
 
 namespace App\Controllers;
 
+use App\Exceptions\ProcedureException;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use Throwable;
 
 /**
  * BaseController provides a convenient place for loading components
@@ -36,14 +38,61 @@ abstract class BaseController extends Controller
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
-        // Load here all helpers you want to be available in your controllers that extend BaseController.
-        // Caution: Do not put the this below the parent::initController() call below.
-        // $this->helpers = ['form', 'url'];
-
-        // Caution: Do not edit this line.
         parent::initController($request, $response, $logger);
+    }
 
-        // Preload any models, libraries, etc, here.
-        // $this->session = service('session');
+    protected function input(): array
+    {
+        try {
+            $data = $this->request->getJSON(true);
+        } catch (Throwable $e) {
+            $data = null;
+        }
+
+        if (! is_array($data)) {
+            $data = $this->request->getPost() ?? [];
+        }
+
+        foreach ($data as $key => $value) {
+            if (is_bool($value)) {
+                $data[$key] = $value ? '1' : '0';
+            } elseif (is_int($value) || is_float($value)) {
+                $data[$key] = (string) $value;
+            } elseif (is_string($value)) {
+                $value      = trim($value);
+                $data[$key] = $value === '' ? null : $value;
+            }
+        }
+
+        return $data;
+    }
+
+    protected function respondSuccess($data = null, string $message = 'OK', int $code = 200): ResponseInterface
+    {
+        return $this->response->setStatusCode($code)->setJSON([
+            'status'  => true,
+            'message' => $message,
+            'data'    => $data,
+        ]);
+    }
+
+    protected function respondError(string $message, int $code, $data = null): ResponseInterface
+    {
+        return $this->response->setStatusCode($code)->setJSON([
+            'status'  => false,
+            'message' => $message,
+            'data'    => $data,
+        ]);
+    }
+
+    protected function handleException(Throwable $e): ResponseInterface
+    {
+        if ($e instanceof ProcedureException && $e->isConflict()) {
+            return $this->respondError($e->userMessage(), 409);
+        }
+
+        log_message('error', '[{class}] {message}', ['class' => get_class($e), 'message' => $e->getMessage()]);
+
+        return $this->respondError('Terjadi kesalahan pada server.', 500);
     }
 }
