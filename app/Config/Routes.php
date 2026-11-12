@@ -66,3 +66,14 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], static function (R
     $routes->post('marital-status/update/(:segment)', 'TblMaritalStatus::update/$1');
     $routes->post('marital-status/delete/(:segment)', 'TblMaritalStatus::delete/$1');
 });
+
+$routes->get('karyawan', 'Pages::karyawan');
+$routes->get('detail-karyawan', 'Pages::detailKaryawan');
+$routes->get('anggota', 'Pages::anggota');
+$routes->get('branch', 'Pages::branch');
+$routes->get('departments', 'Pages::departments');
+$routes->get('office', 'Pages::office');
+$routes->get('position', 'Pages::position');
+$routes->get('plafond', 'Pages::plafond');
+$routes->get('gender', 'Pages::gender');
+$routes->get('marital-status', 'Pages::maritalStatus');
