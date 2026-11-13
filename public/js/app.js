@@ -77,6 +77,14 @@ function formatValue(value, format) {
         return Number(value).toLocaleString('id-ID');
     }
 
+    if (format === 'date') {
+        return String(value).substring(0, 10);
+    }
+
+    if (format === 'yesno') {
+        return value === true || value === 1 || value === '1' ? 'Ya' : 'Tidak';
+    }
+
     return String(value);
 }
 
@@ -112,6 +120,10 @@ function fillForm($form, data) {
 
         if (value === null || value === undefined) {
             value = '';
+        }
+
+        if (this.type === 'date') {
+            value = String(value).substring(0, 10);
         }
 
         if (this.type === 'checkbox') {
