@@ -1,0 +1,40 @@
+* 1f7b33c (origin/main, main) docs(readme): add Installation step
+* 9bad280 feat(db): add sample data
+*   4a31707 Merge branch 'feature/docs-readme'
+|\  
+| * c72cb5e (origin/feature/docs-readme, feature/docs-readme) docs(readme): add git readme
+* |   b4fdbfb Merge branch 'feature/frontend'
+|\ \  
+| |/  
+|/|   
+| * 1d2e43f (HEAD -> feature/frontend, origin/feature/frontend) feat(ui): added crud pages for remaining master data
+| * 9ed3c1c feat(ui): added generic master crud with gender page
+| * ec8587d feat(ui): added shared api client, toast and confirm helpers
+| * a7ee4ba feat(ui): added page routes for 10 master data
+| * 966bc2d feat(ui): added base layout with bootstrap and sidebar menu
+|/  
+*   c3817e2 (feature/backend) Merge branch 'feature/backend'
+|\  
+| * 293181b (origin/feature/backend) feat(api): registered api routes for 10 master data
+| * b090db2 feat(api): added anggota api with soft delete
+| * 3d30678 feat(api): added karyawan api with paging and detail saved in one request
+| * 187f447 feat(api): added departments api with tree hierarchy
+| * 05540e2 feat(api): added branch api
+| * 61b2cd7 feat(api): added plafond api
+| * 32e5058 feat(api): added position and office api
+| * e995a92 feat(api): added marital status and gender type api
+| * d9fa236 feat(api): added stored procedure base model and json response helpers
+| * 26fe989 chore(config): added .env.example and indonesian validation messages
+| *   7d9a895 Merge branch 'feature/frontend' into feature/backend
+| |\  
+| | * 45aa07b docs(readme) : change read me
+| * | 47fe467 docs(readme) : added backend readme
+| |/  
+* |   2c336e1 Merge branch 'feature/database'
+|\ \  
+| |/  
+|/|   
+| * e3daeb3 (origin/feature/database, feature/database) feat(db): add procedures sql and cleansing
+| * cab2815 feat(db): added schemas, index and view
+|/  
+* 17ab058 chore: init CI4 project
