@@ -11,17 +11,19 @@
         <div class="card-body">
             <input type="search" class="form-control mb-3" placeholder="Cari ID atau deskripsi..." data-search>
 
-            <table class="table table-hover align-middle mb-0">
-                <thead>
-                    <tr>
-                        <th data-field="PlafondID">ID</th>
-                        <th data-field="PlafondDescription">Deskripsi</th>
-                        <th data-field="Amount" data-format="number">Amount</th>
-                        <th class="text-end">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th data-field="PlafondID">ID</th>
+                            <th data-field="PlafondDescription">Deskripsi</th>
+                            <th data-field="Amount" data-format="number">Amount</th>
+                            <th class="text-end">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
     </div>
 

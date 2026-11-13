@@ -11,17 +11,19 @@
         <div class="card-body">
             <input type="search" class="form-control mb-3" placeholder="Cari ID atau nama departemen..." data-search>
 
-            <table class="table table-hover align-middle mb-0">
-                <thead>
-                    <tr>
-                        <th data-field="dept_id">ID</th>
-                        <th data-field="dept_name">Nama Departemen</th>
-                        <th data-field="dept_parentname">Departemen Induk</th>
-                        <th class="text-end">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th data-field="dept_id">ID</th>
+                            <th data-field="dept_name">Nama Departemen</th>
+                            <th data-field="dept_parentname">Departemen Induk</th>
+                            <th class="text-end">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
     </div>
 

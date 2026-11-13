@@ -11,17 +11,19 @@
         <div class="card-body">
             <input type="search" class="form-control mb-3" placeholder="Cari ID atau nama cabang..." data-search>
 
-            <table class="table table-hover align-middle mb-0">
-                <thead>
-                    <tr>
-                        <th data-field="BranchID">ID</th>
-                        <th data-field="BranchFullName">Nama Cabang</th>
-                        <th data-field="BranchAddress">Alamat</th>
-                        <th class="text-end">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle text-nowrap mb-0">
+                    <thead>
+                        <tr>
+                            <th data-field="BranchID">ID</th>
+                            <th data-field="BranchFullName">Nama Cabang</th>
+                            <th data-field="BranchAddress">Alamat</th>
+                            <th class="text-end">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
     </div>
 
