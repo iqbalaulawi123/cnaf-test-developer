@@ -69,6 +69,44 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
 
 
+## Langkah Instalasi
+1. Install PHP 8.XX (8.2+), lalu aktifkan ekstensi berikut di `php.ini`:
+   - `intl`
+   - `mbstring`
+   - `curl`
+   - `sqlsrv` dan `pdo_sqlsrv` (unduh dari [Microsoft Drivers for PHP for SQL Server](https://learn.microsoft.com/en-us/sql/connect/php/download-drivers-php-sql-server), pilih yang sesuai versi PHP, NTS/TS, dan x64)
+2. Install [Microsoft ODBC Driver 17 atau 18 for SQL Server](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server).
+3. Install SQL Server 2016 atau lebih baru. Database akan diset ke compatibility level 130 oleh script.
+4. Install [Composer](https://getcomposer.org/download/).
+5. Clone repository dan install dependency:
+   ```bash
+   git clone https://github.com/iqbalaulawi123/cnaf-test-developer.git
+   cd cnaf-test-developer
+   composer install
+   ```
+6. Salin `.env.example` menjadi `.env`, lalu isi password database:
+   ```ini
+   database.default.hostname = localhost
+   database.default.database = DB_TestDeveloper
+   database.default.username = sa
+   database.default.password = <password>
+   database.default.port = 1433
+   database.default.charset = utf8
+   ```
+7. Jalankan script database secara berurutan:
+   database/01_schema.sql
+   database/02_index.sql
+   database/03_views.sql
+   database/04_procedures.sql
+   database/05_sample_data.sql
+
+## Cara Menjalankan
+1. Jalankan server:
+   ```bash
+   php spark serve
+   ```
+2. Buka `http://localhost:8080` di browser.
+
 ## Git
 
 **Apa beda `git fetch` dan `git pull`?**
