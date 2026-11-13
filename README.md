@@ -69,6 +69,25 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
 
 
-ini test dari feature/frontend
+## Git
 
-ini perubahan dari feature backend
+**Apa beda `git fetch` dan `git pull`?**
+`git fetch` hanya mengambil commit terbaru dari remote ke `origin/<branch>` tanpa mengubah branch lokal dan working tree, jadi aman dipakai untuk melihat perubahan dulu. 
+`git pull` adalah `fetch` lalu langsung `merge` (atau `rebase` kalau memakai `--rebase`) ke branch yang sedang aktif.
+
+**Apa beda `git reset --hard` dan `git revert`, dan kapan masing-masing aman dipakai?**
+`git reset --hard <commit>` memindahkan branch ke commit tersebut dan membuang semua perubahan sesudahnya, termasuk yang belum di-commit, sehingga history ditulis ulang. Ini aman hanya untuk commit lokal yang belum di-push.
+`git revert <commit>` membuat commit baru yang membatalkan isi commit tersebut tanpa mengubah history. Ini cara yang aman untuk commit yang **sudah di-push** atau dipakai orang lain.
+
+**Apa beda `merge` dan `rebase`, dan kapan `rebase` tidak boleh dipakai?**
+`merge` menggabungkan dua branch dengan membuat merge commit. History asli tetap utuh, tapi bentuknya bercabang.
+`rebase` memindahkan commit-commit branch ke atas base yang baru, sehingga history lurus. Konsekuensinya, hash commit berubah dan branch yang sudah di-push perlu `git push --force-with-lease`.
+`rebase` tidak boleh dipakai pada branch yang sudah dipakai bersama orang lain (misalnya `main`), karena menulis ulang history yang sudah mereka ambil.
+
+**Bagaimana mengembalikan commit yang "hilang" setelah `reset --hard`?**
+Commit tersebut sebenarnya masih ada, hanya tidak ditunjuk branch mana pun. Langkahnya:
+1. Jalankan `git reflog` untuk melihat riwayat posisi `HEAD`.
+2. Cari hash commit sebelum reset.
+3. Kembalikan dengan `git reset --hard <hash>`, atau buat branch baru.
+
+Reflog bersifat lokal dan disimpan sekitar 90 hari secara bawaan.
