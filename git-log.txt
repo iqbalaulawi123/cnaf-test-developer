@@ -1,21 +1,36 @@
-* 1f7b33c (origin/main, main) docs(readme): add Installation step
-* 9bad280 feat(db): add sample data
-*   4a31707 Merge branch 'feature/docs-readme'
+﻿*   f19e3ba Merge branch 'main' of https://github.com/iqbalaulawi123/cnaf-test-developer
 |\  
-| * c72cb5e (origin/feature/docs-readme, feature/docs-readme) docs(readme): add git readme
-* |   b4fdbfb Merge branch 'feature/frontend'
-|\ \  
+| *   817b3bb Merge pull request #1 from iqbalaulawi123/feature/frontend
+| |\  
+* | \   9e2e143 Merge branch 'feature/frontend'
+|\ \ \  
+| |/ /  
+|/| |   
+| * | a2664ef feat(ui): added karyawan list with paging and single karyawan form
+| * | 98d05f1 feat(ui): added detail karyawan and anggota list pages
+| * | 6ac83b2 style(ui): made master tables horizontally scrollable
+| * | 0bdce8f feat(ui): added paging, filters and view-only mode to master page script
 | |/  
-|/|   
-| * 1d2e43f (HEAD -> feature/frontend, origin/feature/frontend) feat(ui): added crud pages for remaining master data
+| * 1075e63 docs(git-log): add git log one line on txt
+* | 1f7b33c docs(readme): add Installation step
+* | 9bad280 feat(db): add sample data
+* |   4a31707 Merge branch 'feature/docs-readme'
+|\ \  
+| * | c72cb5e docs(readme): add git readme
+* | |   b4fdbfb Merge branch 'feature/frontend'
+|\ \ \  
+| |/ /  
+|/| /   
+| |/    
+| * 1d2e43f feat(ui): added crud pages for remaining master data
 | * 9ed3c1c feat(ui): added generic master crud with gender page
 | * ec8587d feat(ui): added shared api client, toast and confirm helpers
 | * a7ee4ba feat(ui): added page routes for 10 master data
 | * 966bc2d feat(ui): added base layout with bootstrap and sidebar menu
 |/  
-*   c3817e2 (feature/backend) Merge branch 'feature/backend'
+*   c3817e2 Merge branch 'feature/backend'
 |\  
-| * 293181b (origin/feature/backend) feat(api): registered api routes for 10 master data
+| * 293181b feat(api): registered api routes for 10 master data
 | * b090db2 feat(api): added anggota api with soft delete
 | * 3d30678 feat(api): added karyawan api with paging and detail saved in one request
 | * 187f447 feat(api): added departments api with tree hierarchy
@@ -34,7 +49,7 @@
 |\ \  
 | |/  
 |/|   
-| * e3daeb3 (origin/feature/database, feature/database) feat(db): add procedures sql and cleansing
+| * e3daeb3 feat(db): add procedures sql and cleansing
 | * cab2815 feat(db): added schemas, index and view
 |/  
 * 17ab058 chore: init CI4 project
