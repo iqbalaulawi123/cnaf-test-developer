@@ -15,12 +15,12 @@
     </nav>
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row flex-nowrap">
             <aside class="col-auto bg-body border-end min-vh-100 py-3">
                 <?= $this->include('partials/menu') ?>
             </aside>
 
-            <main class="col p-4">
+            <main class="col p-4 overflow-x-auto">
                 <?= $this->renderSection('content') ?>
             </main>
         </div>
